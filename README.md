@@ -86,6 +86,12 @@ with all the normal optimisations, using:
 ./configure --prefix=/usr && make && make install
 ```
 
+Also make sure that your changes are consistent with the coding style defined in the `.clang-format` file, using:
+```
+make format
+```
+You will need `clang-format` installed to use the `format` command.
+
 ## Bugs
 
 Bugs can be reported on GitHub:

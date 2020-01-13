@@ -58,7 +58,7 @@
 #define NWIPE_GUI_FOOTER_Y ( LINES - 1 )
 
 /* Options window: width, height, x coorindate, y coordinate. */
-#define NWIPE_GUI_OPTIONS_W 44
+#define NWIPE_GUI_OPTIONS_W COLS/2
 #define NWIPE_GUI_OPTIONS_H 7
 #define NWIPE_GUI_OPTIONS_Y 1
 #define NWIPE_GUI_OPTIONS_X 0

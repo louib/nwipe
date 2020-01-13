@@ -158,7 +158,9 @@ int main( int argc, char** argv )
     nwipe_misc_thread_data.nwipe_enumerated = nwipe_enumerated;
     nwipe_misc_thread_data.nwipe_selected = 0;
     if( !nwipe_options.nogui )
+    {
         nwipe_misc_thread_data.gui_thread = &nwipe_gui_thread;
+    }
     nwipe_thread_data_ptr.nwipe_misc_thread_data = &nwipe_misc_thread_data;
 
     if( !nwipe_options.nosignals )

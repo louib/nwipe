@@ -77,10 +77,10 @@
 #define NWIPE_GUI_OPTIONS_ROUNDS_X 1
 
 /* Stats window: width, height, x coordinate, y coordinate. */
-#define NWIPE_GUI_STATS_W 36
+#define NWIPE_GUI_STATS_W COLS/2
 #define NWIPE_GUI_STATS_H 7
 #define NWIPE_GUI_STATS_Y 1
-#define NWIPE_GUI_STATS_X 44
+#define NWIPE_GUI_STATS_X COLS/2 + 1
 
 /* Stats fields, relative to their window. */
 #define NWIPE_GUI_STATS_RUNTIME_Y 1

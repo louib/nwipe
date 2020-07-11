@@ -57,11 +57,11 @@ sudo apt install \
   build-essential \
   pkg-config \
   automake \
-  libncurses5-dev \
+  coreutils \
   autotools-dev \
+  libncurses5-dev \
   libparted-dev \
   dmidecode \
-  coreutils \
   smartmontools
 ```
 

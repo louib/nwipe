@@ -1,8 +1,8 @@
 {
     "app-id" : "io.github.martijnvanbrummelen.nwipe",
-    "runtime" : "org.freedesktop.Platform",
-    "runtime-version" : "19.08",
-    "sdk" : "org.freedesktop.Sdk",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.36",
+    "sdk" : "org.gnome.Sdk",
     "command" : "nwipe",
     "tags" : [
         "nightly"
@@ -17,27 +17,74 @@
         }
     },
     "modules" : [
+              {
+                    "name": "libdevmapper",
+                    "cleanup": [ "*" ],
+                    "config-options": [
+                    ],
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url": "https://sourceware.org/git/lvm2.git",
+                            "branch": "master"
+                        }
+                    ]
+               },
         {
-            "name" : "libhandy",
-            "buildsystem" : "meson",
+            "name" : "gparted",
+            "buildsystem" : "autotools",
             "config-opts" : [
-                "-Dintrospection=disabled",
-                "-Dtests=false",
-                "-Dgtk_doc=false",
-                "-Dexamples=false",
-                "-Dvapi=false",
-                "-Dglade_catalog=disabled"
+                "--disable-device-mapper"
             ],
             "cleanup" : [
-                "/include",
-                "/lib/pkgconfig"
             ],
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libhandy",
-                    "tag" : "v0.80.0"
+                    "url" : "https://gitlab.gnome.org/GNOME/gparted.git",
+                    "branch" : "master"
                 }
+            ],
+            "modules": [
+                {
+                    "name" : "gnome-common",
+                    "buildsystem" : "autotools",
+                    "config-opts" : [
+                    ],
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://github.com/GNOME/gnome-common.git",
+                            "branch": "master"
+                        }
+                    ]
+                },
+                {
+                    "name": "intltool",
+                    "cleanup": [ "*" ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz",
+                            "sha256": "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
+                        }
+                    ]
+               },
+              {
+                    "name": "parted",
+                    "cleanup": [ "*" ],
+                    "config-options": [
+                      "--disable-device-mapper"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz",
+                            "sha256": "57e2b4bd87018625c515421d4524f6e3b55175b472302056391c5f7eccb83d44"
+                        }
+                    ]
+               }
+
             ]
         },
         {

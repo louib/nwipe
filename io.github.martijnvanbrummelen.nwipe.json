@@ -41,21 +41,6 @@
             ]
         },
         {
-            "name": "libncurses",
-            "buildsystem": "autotools",
-            "config-opts": [
-              "--disable-static",
-              "-enable-libsystemd-login=no"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://invisible-mirror.net/archives/ncurses/ncurses-5.9.tar.gz",
-                    "sha256": "9046298fb440324c9d4135ecea7879ffed8546dd1b58e59430ea07a4633f563b"
-                }
-            ]
-        },
-        {
             "name" : "nwipe",
             "buildsystem" : "autotools",
             "config-opts" : [
@@ -63,7 +48,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://github.com/martijnvanbrummelen/nwipe.git"
+                    "url" : "https://github.com/louib/nwipe.git",
+                    "branch": "flatpak"
                 }
             ]
         }

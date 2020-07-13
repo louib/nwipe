@@ -7,29 +7,54 @@
     "tags" : [
         "nightly"
     ],
-    "finish-args" : [],
+    "finish-args" : [
+            "--filesystem=home",
+            "--filesystem=/usr/include"
+    ],
     "build-options" : {
         "build-args" : [
-            "--share=network"
+            "--share=network",
+            "--filesystem=home",
+            "--filesystem=/usr/include"
         ],
         "env" : {
             "G_MESSAGES_DEBUG" : "none"
         }
     },
     "modules" : [
-              {
-                    "name": "libdevmapper",
-                    "cleanup": [ "*" ],
-                    "config-options": [
-                    ],
-                    "sources": [
-                        {
-                            "type": "git",
-                            "url": "https://sourceware.org/git/lvm2.git",
-                            "branch": "master"
-                        }
-                    ]
-               },
+        {
+              "name": "libaio",
+              "cleanup": [ "*" ],
+              "buildsystem" : "simple",
+              "build-commands" : [
+                "sed -i '/install.*libaio.a/s/^/#/' src/Makefile",
+                "make",
+                "make install"
+              ],
+              "config-options": [
+              ],
+              "sources": [
+                  {
+                      "type": "archive",
+                      "url": "http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.orig.tar.xz",
+                      "md5": "66e3b7dd255581a73542ee851f8cd737"
+                  }
+              ]
+         },
+
+        {
+              "name": "libdevmapper",
+              "cleanup": [ "*" ],
+              "config-options": [
+              ],
+              "sources": [
+                  {
+                      "type": "git",
+                      "url": "https://sourceware.org/git/lvm2.git",
+                      "branch": "master"
+                  }
+              ]
+         },
         {
             "name" : "gparted",
             "buildsystem" : "autotools",

@@ -92,6 +92,13 @@ smartmontools obtains serial number information for supported USB to IDE/SATA ad
 
 If you want a quick and easy way to keep your copy of nwipe running the latest master release of nwipe see this section [automating the download and compilation](https://github.com/martijnvanbrummelen/nwipe#automating-the-download-and-compilation-process-for-debian-based-distros)
 
+### Flatpak install
+
+If you have [flatpak-builder] installed:
+```
+flatpak-builder --allow-missing-runtimes --system build/ io.github.martijnvanbrummelen.nwipe.json
+```
+
 ### Compilation
 
 For a development setup, see [the hacking section below](#Hacking).

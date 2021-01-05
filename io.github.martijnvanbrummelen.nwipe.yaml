@@ -17,6 +17,15 @@ finish-args:
   - "--filesystem=home"
   - "--filesystem=/usr/include"
 modules:
+  - name: libaio1
+    buildsystem: simple
+    build-commands: [
+        "make prefix=/usr/include install"
+    ]
+    sources:
+      - type: git
+        url: "https://pagure.io/libaio.git"
+        branch: master
   - name: libdevmapper
     sources:
       - type: git

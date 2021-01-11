@@ -19,9 +19,8 @@ finish-args:
 modules:
   - name: libaio1
     buildsystem: simple
-    build-commands: [
-        "make prefix=/usr/include install"
-    ]
+    build-commands:
+      - make install prefix=/ DESTDIR=$FLATPAK_DEST
     sources:
       - type: git
         url: "https://pagure.io/libaio.git"
